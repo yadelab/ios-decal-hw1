@@ -17,16 +17,16 @@ class Words {
         self.wordA = wordA
         self.wordB = wordB
     }
-
-//: ### Are the values passed in to the **init** function and those set to the instance
-//: ### variables the same type? If not, why?
-
-
-//: They are. The bang(!) unwraps the optional to forcefully have a String type.
-
-
-//: ## Q2: Variable Types and Function Types
-    func arePalindromes(_ words: [String]) -> Bool {
+    
+    //: ### Are the values passed in to the **init** function and those set to the instance
+    //: ### variables the same type? If not, why?
+    
+    
+    //: They are. The bang(!) unwraps the optional to forcefully have a String type.
+    
+    
+    //: ## Q2: Variable Types and Function Types
+    static func arePalindromes(_ words: [String]) -> Bool {
         let reversedWords = words.map() {String($0.characters.reversed())}
         let numElements = words.count
         
@@ -35,18 +35,19 @@ class Words {
                 return false
             }
         }
+        return true
     }
-//: ### Why does the compiler dislike the **for loop**? Fix it.
-//: ### What else is wrong with this function? You may have to refer to (but **not**
-//: ### change) the code at the very bottom. Debug the function.
-
-
-//: [EXPLAIN YOUR ANSWER HERE]
-
-
-//: ## Q3: More Functions and Object Initialization
-    class func isAnagram() -> Bool {
-        var countLetters : [Character : Int] //Line X
+    //: ### Why does the compiler dislike the **for loop**? Fix it.
+    //: ### What else is wrong with this function? You may have to refer to (but **not**
+    //: ### change) the code at the very bottom. Debug the function.
+    
+    
+    //: We are calling the method arePalindromes on the class Word when can only call an instance method with an instance of a class.
+    
+    
+    //: ## Q3: More Functions and Object Initialization
+    func isAnagram() -> Bool {
+        var countLetters : [Character : Int]  = [Character :Int]()//Line X
         var lenA = self.wordA.characters.count
         var lenB = self.wordB.characters.count
         
@@ -81,15 +82,15 @@ class Words {
             }
         }
         
-        return nil
+        return true
     }
-//: ### What is the problem with declaring **countLetters** as we do in **Line X**,
-//: ### and then using it in **Line Y**? Fix it (by only changing **Line X**).
-//: ### What else is wrong with this function? You may have to refer to (but **not**
-//: ### change) the code at the very bottom. Debug the function.
-
-
-//: [EXPLAIN YOUR ANSWER HERE]
+    //: ### What is the problem with declaring **countLetters** as we do in **Line X**,
+    //: ### and then using it in **Line Y**? Fix it (by only changing **Line X**).
+    //: ### What else is wrong with this function? You may have to refer to (but **not**
+    //: ### change) the code at the very bottom. Debug the function.
+    
+    
+    //: The way we are declaring the dictionary is not correct. At line Y we try to access a dictionary that was not  declared correctly. Another problem with the function is the expected return type was boolean but we were returning nil. Also, since isAnagram() was being called on an instance of class we have to convert it to an instance method by removing the class keyword.
     
     
 }
