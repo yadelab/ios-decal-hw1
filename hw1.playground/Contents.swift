@@ -22,7 +22,7 @@ class Words {
 //: ### variables the same type? If not, why?
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: They are. The bang(!) unwraps the optional to forcefully have a String type.
 
 
 //: ## Q2: Variable Types and Function Types
